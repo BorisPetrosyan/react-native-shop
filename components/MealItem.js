@@ -12,7 +12,9 @@ const MealItem = props => {
                             style={styles.bgImage}
                         >
                             <View style={styles.titleContainer}>
-                                <Text style={styles.title} numberOfLines={1}>{props.title}</Text>
+                                <Text style={styles.title} numberOfLines={1}>
+                                    {props.title}
+                                </Text>
                             </View>
                         </ImageBackground>
                     </View>
@@ -58,11 +60,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,0.5)',
         paddingVertical: 5,
         paddingHorizontal: 12,
-
     },
     title: {
         fontFamily: 'open-sans-bold',
-        fontSize: 22,
+        fontSize: 20,
         color: 'white',
         textAlign: 'center'
     }
