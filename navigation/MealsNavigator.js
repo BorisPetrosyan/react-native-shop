@@ -4,7 +4,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import CategoriesScreen from "../screens/CategoriesScreen";
 import CategoryMealsScreen from "../screens/CategoryMealsScreen";
 import MealDetailScreen from "../screens/MeakDetailScreen";
-import {Platform} from "react-native";
+import {Platform ,Text} from "react-native";
 import Colors from "../constants/Colors";
 import {createBottomTabNavigator} from 'react-navigation-tabs'
 import FavoritesScreen from "../screens/FavoritesScreen";
@@ -27,6 +27,12 @@ const MealsNavigator = createStackNavigator({
             backgroundColor: Platform.OS === 'android' ?
                 Colors.primaryColor : ''
         },
+        headerTitleStyle: {
+            fontFamily:'open-sans-bold'
+        },
+        headerBackTitleStyle:{
+            fontFamily:'open-sans'
+        },
         headerTintColor: Platform.OS === 'android' ?
             'white' : Colors.primaryColor
     }
@@ -37,7 +43,6 @@ const tabScreenConfig = {
         screen: MealsNavigator,
         navigationOptions: {
             tabBarIcon: (tabInfo) => {
-                console.log(tabInfo)
                 return (
                     <Ionicons
                         name='ios-restaurant'
@@ -46,7 +51,9 @@ const tabScreenConfig = {
                     />
                 )
             },
-            tabBarColor: Colors.primaryColor
+            tabBarColor: Colors.primaryColor,
+            tabBarLabel: Platform.OS === 'android'? <Text style={{fontFamily:'open-sans'}}>Meals</Text>: 'Meals'
+
         }
     },
     Favorites: {
@@ -57,18 +64,25 @@ const tabScreenConfig = {
 
                 return <Ionicons name='ios-star' size={25} color={tabInfo.tintColor}/>
             },
-            tabBarColor: Colors.acceptColor
+            tabBarColor: Colors.acceptColor,
+            tabBarLabel: Platform.OS === 'android'? <Text style={{fontFamily:'open-sans'}}>Favorites</Text>: 'Favorites'
         }
     }
 }
 
 const MealsFavTabNavigator = Platform.OS === 'android'
     ? createMaterialBottomTabNavigator(tabScreenConfig, {
-        activeTintColor: Colors.acceptColor,
-        shifting:true
+        activeTintColor: 'white',
+        shifting:true,
+        barStyle: {
+            backgroundColor: Colors.primaryColor
+        }
     })
     : createBottomTabNavigator(tabScreenConfig, {
         tabBarOptions: {
+             labelStyle:{
+                 fontFamily:'open-sans'
+             },
             activeTintColor: Colors.acceptColor
         }
     })
