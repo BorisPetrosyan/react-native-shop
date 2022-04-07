@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from "react-native";
+import {ScrollView, View, Text, StyleSheet, Button} from "react-native";
 import {MEALS} from "../data/dummy-data";
 import {HeaderButtons, Item} from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
@@ -10,13 +10,16 @@ const MealDetailScreen = props => {
     const selectedMeal = MEALS.find(meal => meal.id === mealId)
 
     return (
-        <View style={styles.screen}>
-            <Text>{selectedMeal.title}</Text>
-            <Button title='Go Back to Categories' onPress={() => {
-                props.navigation.popToTop();
-            }}/>
-        </View>
-
+        <ScrollView>
+            <View style={styles.screen}>
+                <Text>{selectedMeal.title}</Text>
+                <Button
+                    title='Go Back to Categories'
+                    onPress={() => {
+                        props.navigation.popToTop();
+                    }}/>
+            </View>
+        </ScrollView>
     );
 };
 
@@ -25,7 +28,7 @@ MealDetailScreen.navigationOptions = (navigationData) => {
     const selectedMeal = MEALS.find(meal => meal.id === mealId)
     return {
         headerTitle: selectedMeal.title,
-        headerRight: () =>  {
+        headerRight: () => {
             return (
                 <HeaderButtons HeaderButtonComponent={HeaderButton}>
                     <Item
