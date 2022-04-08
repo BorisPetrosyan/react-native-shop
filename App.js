@@ -6,7 +6,7 @@ import { enableScreens } from 'react-native-screens'
 
 import MealsNavigator from "./navigation/MealsNavigator";
 import {combineReducers, createStore} from "redux";
-import mealsReducer from "./store/reducers/meals";
+import mealsReducer from "./store/reducers/mealss";
 import {Provider} from "react-redux";
 
 enableScreens()
