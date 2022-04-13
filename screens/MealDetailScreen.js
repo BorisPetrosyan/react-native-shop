@@ -5,7 +5,7 @@ import {HeaderButtons, Item} from "react-navigation-header-buttons";
 import HeaderButton from "../components/HeaderButton";
 import DefaultText from "../components/DefaultText";
 import {useDispatch, useSelector} from "react-redux";
-import {toggleFavorite} from "../store/actions/mealsAction";
+import {toggleFavorite} from "../store/actions/mealsActions";
 import prefix from "react-native-web/dist/exports/StyleSheet/ReactNativePropRegistry";
 
 const ListItem = props => {

@@ -23,7 +23,7 @@ const defaultStackNavOptions = {
         fontFamily: 'open-sans-bold'
     },
     headerBackTitleStyle: {
-        fontFamily: 'open-sans'
+        fontFamily: 'open-sans',
     },
     headerTintColor: Platform.OS === 'android' ?
         'white' : Colors.primaryColor
@@ -105,7 +105,7 @@ const MealsFavTabNavigator = Platform.OS === 'android'
 
 const FiltersNavigator = createStackNavigator({
     Filters: FiltersScreen
-},{
+}, {
     // navigationOptions:{
     //   drawerLabel:'Filters!!!!!!!'
     // },
@@ -115,9 +115,9 @@ const FiltersNavigator = createStackNavigator({
 
 const MainNavigator = createDrawerNavigator({
     MealsFavs: {
-        screen:MealsFavTabNavigator,
+        screen: MealsFavTabNavigator,
         navigationOptions: {
-            drawerLabel:'Meals'
+            drawerLabel: 'Meals'
         }
     },
     Filters: FiltersNavigator
@@ -126,6 +126,9 @@ const MainNavigator = createDrawerNavigator({
         activeTintColor: Colors.acceptColor,
         labelStyle: {
             fontFamily: 'open-sans-bold'
+        },
+        itemsContainerStyle : {
+            marginVertical:25
         }
     }
 });
